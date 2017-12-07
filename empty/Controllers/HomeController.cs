@@ -19,13 +19,6 @@ namespace empty.Controllers
 
         public IActionResult Index()
         {            
-            _unitOfWork.BlogPosts.Add(new Domain.BlogPost
-            {
-                Content = "Blog ho ho ho",
-                Title = "Ho ho ho Title"
-            });
-            var posts = _unitOfWork.BlogPosts.GetAll();
-            _unitOfWork.Complete();            
             return View();
         }
 
