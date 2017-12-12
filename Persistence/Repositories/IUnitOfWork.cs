@@ -7,6 +7,8 @@ namespace Persistence.Repositories
     public interface IUnitOfWork : IDisposable
     {
         IBlogPostRepository BlogPosts { get; } 
+
+        IResumeRepository Resume { get; }
         int Complete();
     }
 }

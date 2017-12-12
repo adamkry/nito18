@@ -1,0 +1,16 @@
+﻿@model empty.Models.ResumeViewModel
+
+@{
+    ViewData["Title"] = "O mnie";
+}
+
+<h2>@Html.DisplayNameFor(model => model.Biography)</h2>
+
+<article>
+    @Html.DisplayFor(model => model.Biography)
+</article>
+
+<br />
+<h4>Kalendarium</h4>
+<br />
+@Html.Partial("Resume/_ResumePositions", @Model.Positions)

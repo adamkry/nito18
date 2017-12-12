@@ -35,7 +35,7 @@ namespace empty.Files
             var fileInfo = _fileProvider.GetFileInfo(fileName);
             using (var logWriter = new StreamWriter(fileInfo.PhysicalPath))
             {
-                logWriter.WriteAsync(fileText);
+                logWriter.Write(fileText);
             }
             return true;
         }
