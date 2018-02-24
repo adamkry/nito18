@@ -21,5 +21,10 @@ namespace empty.Models
         [Required]
         [Display(Name = "Twój Email")]
         public string SenderEmail { get; set; }
+
+        [Phone]
+        [Required]
+        [Display(Name = "Twój numer telefonu")]
+        public string PhoneNumber { get; set; }
     }
 }

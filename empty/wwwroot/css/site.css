@@ -33,3 +33,42 @@
         display: none;
     }
 }
+
+.navbar-inverse {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #044589;
+    background-color: #afd201;
+    border-color: #afd201;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #044589;
+}
+
+.navbar-brand {
+    padding-top: 0px;
+}
+
+.navbar-brand img {
+    height: 51px;
+}
+
+/* facebook */
+
+.fb-container {
+    display: table;
+    margin: 0 auto;
+}
+
+/* resume */
+
+.resume figure {
+    float: left;
+    padding: 20px;
+}
+
+.resume-img {
+    height: 500px;
+}

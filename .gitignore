@@ -2,8 +2,8 @@ dataJson
 .vs/
 Debug/
 Release/
-bin
-obj
+bin/
+obj/
 *.suo
 *.user
 packages

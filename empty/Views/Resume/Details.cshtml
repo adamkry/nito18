@@ -6,8 +6,13 @@
 
 <h2>@Html.DisplayNameFor(model => model.Biography)</h2>
 
-<article>
+<article class="resume">
+    <figure>
+        <img src="~/images/resume/ja.jpg" alt="Wojciech Nitwinko" class="img-responsive resume-img" />
+        <figcaption>Wojciech Nitwinko</figcaption>
+    </figure>
     @Html.Raw(@Model.Biography)
+
 </article>
 
 <br />
