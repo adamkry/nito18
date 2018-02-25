@@ -25,7 +25,33 @@
   js.src = 'https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.12';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="top-bar">
+        <div id="top-carousel" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @for (int i = 1; i < 18; i=i+3) {
+                    var item = i == 1 ? "item active" : "item";
+                    var imgName = $"/images/top-carousel/{i}.jpg";
+                    var imgName2 = $"/images/top-carousel/{i+1}.jpg";
+                    var imgName3 = $"/images/top-carousel/{i+2}.jpg";
+                    <div class="@Html.Raw(item)">                       
+                        <div class="row">
+                            <div class="col-md-4">
+                            <img src=@imgName alt="Wojciech Nitwinko">
+                            </div>
+                            <div class="col-md-4">
+                            <img src=@imgName2 alt="Wojciech Nitwinko">
+                            </div>
+                            <div class="col-md-4">
+                            <img src=@imgName3 alt="Wojciech Nitwinko">
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,18 +66,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Strona główna</a></li>
-                    <li><a asp-area="" asp-controller="Resume" asp-action="Details">O mnie</a></li>
-                    <li><a asp-area="" asp-controller="Contact" asp-action="Send">Kontakt</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">STRONA GŁÓWNA</a></li>
+                    <li><a asp-area="" asp-controller="Resume" asp-action="Details">O MNIE</a></li>
+                    <li><a asp-area="" asp-controller="Contact" asp-action="Send">KONTAKT</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container body-content">
-        @RenderBody()
+        @RenderBody()        
         <hr />
         <footer>
-            <p>&copy; 2017 - Nitwinko</p>
+            <p>&copy; 2018 - Nitwinko</p>
         </footer>
     </div>
 
