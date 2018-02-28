@@ -23,14 +23,17 @@ namespace empty.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Send(ContactMessageViewModel contactMessage)
         {
-            SmtpClient client = new SmtpClient("poczta.o2.pl", 587);
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("gaijin00@o2.pl", "Pa$$w0rd2");
-            client.EnableSsl = true;
+            SmtpClient client = new SmtpClient("poczta.o2.pl", 587)
+            {
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("wojciech-website-contact@o2.pl", "Wojciech1"),
+                EnableSsl = true
+            };
 
             MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("gaijin00@o2.pl");
-            mailMessage.To.Add("razudoks@gmail.com");
+            mailMessage.From = new MailAddress("wojciech-website-contact@o2.pl");
+            //mailMessage.To.Add("nitwinko@wp.pl");
+            mailMessage.To.Add("wojciech-website-contact@o2.pl");
             mailMessage.Body = contactMessage.Content + Environment.NewLine + Environment.NewLine + contactMessage.SenderEmail;
             mailMessage.Subject = contactMessage.Title;
             client.Send(mailMessage);
