@@ -25,32 +25,40 @@
   js.src = 'https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.12';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="top-bar">
-        <div id="top-carousel" class="carousel slide" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                @for (int i = 1; i < 19; i=i+3) {
-                    var item = i == 1 ? "item active" : "item";
-                    var imgName = $"/images/top-carousel/{i}.jpg";
-                    var imgName2 = $"/images/top-carousel/{i+1}.jpg";
-                    var imgName3 = $"/images/top-carousel/{i+2}.jpg";
-                    <div class="@Html.Raw(item)">                       
-                        <div class="row">
-                            <div class="col-md-4">
-                            <img src=@imgName alt="Wojciech Nitwinko">
-                            </div>
-                            <div class="col-md-4">
-                            <img src=@imgName2 alt="Wojciech Nitwinko">
-                            </div>
-                            <div class="col-md-4">
-                            <img src=@imgName3 alt="Wojciech Nitwinko">
+<div class="top-bar center-element">
+    <div id="top-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            @for (int i = 1; i < 19; i=i+3) {
+                var item = i == 1 ? "item active" : "item";
+                var imgName = $"/images/top-carousel/{i}.jpg";
+                var imgName2 = $"/images/top-carousel/{i+1}.jpg";
+                var imgName3 = $"/images/top-carousel/{i+2}.jpg";
+                <div class="@Html.Raw(item)">                       
+                    <div class="row">
+                        <div class="visible-xs col-xs-12">
+                            <div class="centerBlock">
+                                <img src=@imgName alt="Wojciech Nitwinko" class="img-responsive">
                             </div>
                         </div>
+                        <div class="hidden-xs col-sm-4">
+                            <div class="centerBlock">
+                                <img src=@imgName alt="Wojciech Nitwinko">
+                            </div>
+                        </div>
+                        <div class="hidden-xs col-sm-4">
+                            <img src=@imgName2 alt="Wojciech Nitwinko">
+                        </div>
+                        <div class="hidden-xs col-sm-4">
+                            <img src=@imgName3 alt="Wojciech Nitwinko">
+                        </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
+</div>
+<div class="row">
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
@@ -73,13 +81,17 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()        
-        <hr />
+</div>    
+<div class="container body-content">
+    <div class="row">
+        @RenderBody()
+    </div>
+    <div class="row">
         <footer>
             <p>&copy; 2018 - Nitwinko</p>
         </footer>
     </div>
+</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

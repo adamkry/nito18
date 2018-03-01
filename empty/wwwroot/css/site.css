@@ -14,9 +14,15 @@ body {
     padding-bottom: 20px;
 }
 
+.center-element {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
+    margin-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -69,6 +75,21 @@ body {
     height: 51px;
 }
 
+/* card */
+.card {
+    margin-left: 20px;
+    margin-bottom: 20px; 
+}
+
+.card .photo {
+    margin-bottom: 10px;
+}
+
+.card .introduction {
+    font-weight: bold;
+    text-align: center;
+}
+
 /* facebook */
 
 .fb-container {
@@ -87,12 +108,14 @@ body {
     height: 500px;
 }
 
-.top-bar {
-    margin-left: auto;
-    margin-right: auto;
-    width: 940px;
-}
-
 .news {
     margin-top: 10px;
 }
+
+@media (max-width: 767px) {
+    .centerBlock {
+        display: table;
+        margin: auto;
+    }
+}
+
