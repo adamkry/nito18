@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using empty.Controllers.Extensions;
 
 namespace empty.Controllers
 {
@@ -30,7 +31,7 @@ namespace empty.Controllers
             {
                 return NotFound();
             }
-            return View(Map(post));
+            return View(post.ToViewModel());
         }
 
         #region Create
@@ -86,17 +87,6 @@ namespace empty.Controllers
         }
 
         #endregion
-
-        private BlogPostViewModel Map(BlogPost post)
-        {
-            return new BlogPostViewModel
-            {
-                Id = post.Id,
-                Content = post.Content,
-                Created = post.Created,
-                Title = post.Title
-            };
-        }
 
         private BlogPost Map(BlogPostViewModel post)
         {

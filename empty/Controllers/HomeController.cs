@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 using empty.Models;
 using Persistence.Repositories;
@@ -18,8 +19,20 @@ namespace empty.Controllers
         }
 
         public IActionResult Index()
-        {            
-            return View();
+        {
+            List<BlogPost> blogPosts = _unitOfWork.BlogPosts.GetAll().ToList();
+            if (blogPosts?.Count > 3)
+            {
+                blogPosts = blogPosts.Take(3).ToList();
+            }
+
+            var resultPosts = blogPosts.Select(bp => bp.ToViewModel()).ToList();
+
+            var result = new HomeViewModel
+            {
+                BlogPosts = resultPosts
+            };
+            return View(result);
         }
 
         public IActionResult About()
