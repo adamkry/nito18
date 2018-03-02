@@ -71,7 +71,7 @@ namespace empty.Controllers
             {
                 return NotFound();
             }
-            return View(Map(post));
+            return View(post.ToViewModel());
         }
 
         [Route("artykul/{id}/edytuj")]
