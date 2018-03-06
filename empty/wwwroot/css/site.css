@@ -14,6 +14,11 @@ body {
     padding-bottom: 20px;
 }
 
+.top-bar {
+    width: 100%;
+    max-width: 950px;
+}
+
 .center-element {
     margin-left: auto;
     margin-right: auto;
@@ -25,6 +30,8 @@ body {
     margin-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
+    width: 100%;
+    max-width: 930px;
 }
 
 /* Carousel */
