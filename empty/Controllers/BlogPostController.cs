@@ -18,6 +18,21 @@ namespace empty.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        [Route("artykuly")]
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var posts = _unitOfWork.BlogPosts.GetAll() ?? new List<BlogPost>();
+            var result = new AllBlogPostsViewModel
+            {
+                BlogPosts = posts
+                    .OrderByDescending(p => p.Created)
+                    .Select(p => p.ToViewModel())
+                    .ToList()
+            };
+            return View("ShowAll", result);
+        }
+
         [Route("artykul/{id}")]
         [HttpGet]
         public IActionResult Details(int? id)

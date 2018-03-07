@@ -54,7 +54,7 @@
             @foreach (var post in Model.BlogPosts)
             {
             <div class="article">
-                Html.Partial("BlogPost/_BlogPost", @Model.BlogPosts)
+                @Html.Partial("BlogPost/_BlogPost", post)
             </div>
             }
         </div>
