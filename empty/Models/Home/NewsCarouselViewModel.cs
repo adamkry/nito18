@@ -4,6 +4,6 @@ namespace empty.Models
 {
     public class NewsCarouselViewModel
     {
-        public List<NewsViewModel> News { get; set; }
+        public List<NewsViewModel> News { get; set; } = new List<NewsViewModel>();
     }
 }

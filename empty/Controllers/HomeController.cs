@@ -31,9 +31,35 @@ namespace empty.Controllers
 
             var result = new HomeViewModel
             {
-                BlogPosts = resultPosts
+                BlogPosts = resultPosts,
+                News = GetNews(resultPosts)
             };
             return View(result);
+        }
+
+        private NewsCarouselViewModel GetNews(List<BlogPostViewModel> blogPosts)
+        {       
+            var list = new List<NewsViewModel>();
+            list.Add(new NewsViewModel
+            {
+                Id = 1,
+                Title = "Dupa dupa dupa dupa",
+                Images = new List<string> { "/images/sosnowiec/logo.jpg" }
+            });
+            if (blogPosts.Count > 0)
+            {
+                int i = list.Count + 1;
+                list.AddRange(blogPosts.Select(bp => new NewsViewModel
+                {
+                    Id = i++,
+                    Title = bp.Title
+                }));
+            }
+            var result = new NewsCarouselViewModel
+            {
+               News = list 
+            };
+            return result;
         }
 
         public IActionResult About()
