@@ -2,7 +2,7 @@
 
 <div class="news-carousel hidden-xs row">
     <div class="col-sm-12">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
             <ol class="carousel-indicators">  
                 @for (var j=0; j < Model.News.Count; j++)
                 {                    
@@ -17,25 +17,11 @@
             {
                 i++;
                 <div class="item @(i == 1 ? "active" : "")">                    
-                    <img src="~/images/banner1.svg" alt="Visual Studio" class="img-responsive" />
+                    <div class="item-content" 
+                         style="@(news.Images.Count > 0 ? ("background-image: url('../" + news.Images[0] + "')") : "")"></div>
                     <div class="carousel-caption" role="option">
-                        <div class="form-group">
-                            <div class="row">                                
-                                <div class="col-sm-3">
-                                    @foreach (var image in news.Images)
-                                    {
-                                        <img src="@(image)" class="img-responsive" width="100%" />
-                                    }
-                                </div>
-                                <div class="col-sm-7">
-                                    <p>@news.Title</p>
-                                </div>              
-                                <div class="col-sm-2">
-                                    <a class="btn btn-default" href="">
-                                        Czytaj więcej
-                                    </a>
-                                </div>                  
-                            </div>
+                        <div class="item-title">
+                            <p>@news.Title</p>
                         </div>
                     </div>
                 </div>    

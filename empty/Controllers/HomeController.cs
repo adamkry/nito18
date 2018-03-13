@@ -44,7 +44,7 @@ namespace empty.Controllers
             {
                 Id = 1,
                 Title = "Dupa dupa dupa dupa",
-                Images = new List<string> { "/images/sosnowiec/logo.jpg" }
+                Images = new List<string> { "images/sosnowiec/logo.jpg" }
             });
             if (blogPosts.Count > 0)
             {
@@ -52,7 +52,8 @@ namespace empty.Controllers
                 list.AddRange(blogPosts.Select(bp => new NewsViewModel
                 {
                     Id = i++,
-                    Title = bp.Title
+                    Title = bp.Title,
+                    Images = new List<string> { "images/blogposts/1/1.jpg" }
                 }));
             }
             var result = new NewsCarouselViewModel

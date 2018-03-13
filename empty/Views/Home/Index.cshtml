@@ -4,7 +4,7 @@
     ViewData["Title"] = "Strona główna";
 }
 <div class="form-group">
-    <div class="col-xs-12 col-sm-9">
+    <div class="col-xs-12 col-sm-8">
         @Html.Partial("Home/_NewsCarousel", Model.News)
         <div class="articles">
             @foreach (var post in Model.BlogPosts)
@@ -14,29 +14,23 @@
             </div>
             }
         </div>
-        <div class="fb-section">
-            @*<div class="fb-container">
-                <div class="fb-post" data-width="700" data-href="https://www.facebook.com/20531316728/posts/10154009990506729/"></div>
-            </div>
-            <div class="fb-container">
-                <div class="fb-post" data-width="700" data-href="https://www.facebook.com/20531316728/posts/10154009990506729/"></div>
-            </div>
-            <div class="fb-container">
-                <div class="fb-post" data-width="700" data-href="https://www.facebook.com/20531316728/posts/10154009990506729/"></div>
-            </div>*@
-        </div>
     </div>
-    <div class="hidden-xs col-sm-3">
-        <div class="card">
+    <div class="hidden-xs col-sm-4">
+        @*<div class="card">
             <div class="photo">
                 <img src="/images/index/wojciech.jpg" alt="Wojciech Nitwinko" class="img-responsive" />
             </div>
             <div class="introduction">
                 <span>Wojciech Nitwinko</span>
             </div>
-        </div>
+        </div>*@
         <div class="fb-section">
-            <div class="fb-page" data-href="https://www.facebook.com/nitwinko.wojciech/" data-tabs="timeline" data-width="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/nitwinko.wojciech/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/nitwinko.wojciech/">Wojciech Nitwinko</a></blockquote></div>
+            <div class="fb-page" data-href="https://www.facebook.com/nitwinko.wojciech/" data-tabs="timeline" data-width="400"
+                 data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/nitwinko.wojciech/" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/nitwinko.wojciech/">Wojciech Nitwinko</a>
+                </blockquote>
+            </div>
         </div>
     </div>
 </div>

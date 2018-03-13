@@ -39,6 +39,21 @@ body {
     max-width: 930px;
 }
 
+.item-content {
+    width: 100%;
+    height: 300px;
+    background-color: #afd201;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.item-title {
+    background-color: #044589;
+    color: white;
+    opacity: 0.8;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
