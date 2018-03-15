@@ -4,7 +4,7 @@
     ViewData["Title"] = "Strona główna";
 }
 <div class="form-group">
-    <div class="col-xs-12 col-sm-8">
+    <div class="col-sm-8">
         @Html.Partial("Home/_NewsCarousel", Model.News)
         <div class="articles">
             @foreach (var post in Model.BlogPosts)
@@ -15,7 +15,7 @@
             }
         </div>
     </div>
-    <div class="hidden-xs col-sm-4">
+    <div class="col-sm-4">
         @*<div class="card">
             <div class="photo">
                 <img src="/images/index/wojciech.jpg" alt="Wojciech Nitwinko" class="img-responsive" />
