@@ -34,8 +34,15 @@ namespace empty.Controllers
             mailMessage.From = new MailAddress("wojciech-website-contact@o2.pl");
             //mailMessage.To.Add("nitwinko@wp.pl");
             mailMessage.To.Add("wojciech-website-contact@o2.pl");
-            mailMessage.Body = contactMessage.Content + Environment.NewLine + Environment.NewLine + contactMessage.SenderEmail;
-            mailMessage.Subject = contactMessage.Title;
+            mailMessage.Body = contactMessage.Content 
+                + Environment.NewLine 
+                + Environment.NewLine
+                + contactMessage.SenderName
+                + Environment.NewLine
+                + contactMessage.PhoneNumber
+                + Environment.NewLine
+                + contactMessage.SenderEmail;
+            mailMessage.Subject = "[nitwinko.pl] " + contactMessage.Title;
             client.Send(mailMessage);
 
             return RedirectToAction(nameof(Show), contactMessage);
