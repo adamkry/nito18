@@ -29,7 +29,7 @@ namespace empty.Models
         public string SenderEmail { get; set; }
 
         [Phone]
-        [Required]
+        [Required(ErrorMessage = requiredErrorMessage)]
         [Display(Name = "Twój numer telefonu")]
         public string PhoneNumber { get; set; }
     }

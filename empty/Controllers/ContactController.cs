@@ -32,7 +32,7 @@ namespace empty.Controllers
 
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress("wojciech-website-contact@o2.pl");
-            //mailMessage.To.Add("nitwinko@wp.pl");
+            mailMessage.To.Add("nitwinko@wp.pl");
             mailMessage.To.Add("wojciech-website-contact@o2.pl");
             mailMessage.Body = contactMessage.Content 
                 + Environment.NewLine 

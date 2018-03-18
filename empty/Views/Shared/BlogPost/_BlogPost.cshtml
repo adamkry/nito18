@@ -4,5 +4,5 @@
     <h1>@Model.Title</h1>
     <h5>@Model.Created.ToString("yyyy-MM-dd")</h5>
     <p>@Html.Raw(Model.Content)</p>
-    <img src="~/images/blogposts/1/1.jpg" alt="Ulica Zamenhofa" height="200px" />
+    <img src="~/images/blogposts/@(Model.Id)/1.jpg" alt="Ulica Zamenhofa" height="200px" />
 </article>

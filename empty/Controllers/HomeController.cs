@@ -21,13 +21,14 @@ namespace empty.Controllers
 
         public IActionResult Index()
         {
-            List<BlogPost> blogPosts = _unitOfWork.BlogPosts.GetAll().ToList();
-            if (blogPosts?.Count > 3)
-            {
-                blogPosts = blogPosts.Take(3).ToList();
-            }
+            List<BlogPost> blogPosts = _unitOfWork.BlogPosts
+                .GetAll()
+                .OrderByDescending(bp => bp.Created)
+                .ToList();
 
-            var resultPosts = blogPosts.Select(bp => bp.ToViewModel()).ToList();
+            var resultPosts = blogPosts
+                .Select(bp => bp.ToViewModel())
+                .ToList();
 
             var result = new HomeViewModel
             {
@@ -40,20 +41,20 @@ namespace empty.Controllers
         private NewsCarouselViewModel GetNews(List<BlogPostViewModel> blogPosts)
         {       
             var list = new List<NewsViewModel>();
-            list.Add(new NewsViewModel
-            {
-                Id = 1,
-                Title = "Dupa dupa dupa dupa",
-                Images = new List<string> { "images/sosnowiec/logo.jpg" }
-            });
+            // list.Add(new NewsViewModel
+            // {
+            //     Id = 1,
+            //     Title = "Dupa dupa dupa dupa",
+            //     Images = new List<string> { "images/sosnowiec/logo.jpg" }
+            // });
             if (blogPosts.Count > 0)
             {
                 int i = list.Count + 1;
                 list.AddRange(blogPosts.Select(bp => new NewsViewModel
                 {
-                    Id = i++,
+                    Id = bp.Id,
                     Title = bp.Title,
-                    Images = new List<string> { "images/blogposts/1/1.jpg" }
+                    Images = new List<string> { $"images/blogposts/{bp.Id}/1.jpg" }
                 }));
             }
             var result = new NewsCarouselViewModel
