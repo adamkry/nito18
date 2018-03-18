@@ -1,0 +1,26 @@
+@model empty.Models.BlogPostViewModel
+
+<a href="#" class="list-group-item">
+    <div class="media col-md-4">
+        <figure class="pull-left">
+            <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+        </figure>
+    </div>
+    <div class="col-md-5">
+        <h4 class="list-group-item-heading ellipsis">@Model.Title</h4>
+        <div class="list-group-item-text">
+            @Model.Content.Substring(0, Math.Min(@Model.Content.Length, 256))...
+        </div>
+    </div>
+    <div class="col-md-3 text-center">
+        <h5>@Model.Created.ToString("yyyy-MM-dd")</h5>
+        <button type="button" class="btn btn-default btn-block">Czytaj więcej</button>
+        <!-- <div class="stars">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+        </div> -->
+    </div>
+</a>

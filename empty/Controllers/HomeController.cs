@@ -31,7 +31,7 @@ namespace empty.Controllers
 
             var result = new HomeViewModel
             {
-                BlogPosts = resultPosts,
+                BlogPosts = new AllBlogPostsViewModel { BlogPosts = resultPosts },
                 News = GetNews(resultPosts)
             };
             return View(result);

@@ -1,0 +1,15 @@
+@model empty.Models.AllBlogPostsViewModel
+
+<div class="row">
+	<div class="well">
+        <h3 class="text-center">Aktualności</h3>
+        <div class="list-group">
+            @foreach (var post in Model.BlogPosts)
+            {
+            <div class="article">
+                @Html.Partial("BlogPost/_BlogPostPreview", post)
+            </div>
+            }
+        </div>
+    </div>
+</div>

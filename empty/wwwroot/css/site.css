@@ -35,8 +35,6 @@ body {
     margin-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
-    width: 100%;
-    max-width: 930px;
 }
 
 .item-content {
@@ -123,6 +121,11 @@ body {
     margin: 0 auto;
 }
 
+.fb-section {
+    width: 100%;
+    max-width: 500px;
+}
+
 /* resume */
 
 .resume figure {
@@ -143,5 +146,32 @@ body {
         display: table;
         margin: auto;
     }
+}
+
+/* blog posts */
+a.list-group-item {
+    height:auto;
+    min-height:220px;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #044589;
+    border-color: #044589;
+}
+
+@media (min-width: 1200px) {
+    a.list-group-item {
+        min-height: 260px;
+    }
+}
+
+a.list-group-item.active small {
+    color:#fff;
 }
 

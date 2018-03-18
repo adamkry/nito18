@@ -1,10 +1,11 @@
 @model empty.Models.AllBlogPostsViewModel
 
-<div class="articles">
+@Html.Partial("BlogPost/_BlogPostsPreview", @Model)
+<!-- <div class="articles">
     @foreach (var post in Model.BlogPosts)
     {
     <div class="article">
         @Html.Partial("BlogPost/_BlogPost", post)
     </div>
     }
-</div>
+</div> -->
