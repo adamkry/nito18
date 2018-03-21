@@ -10,6 +10,7 @@ using empty.Controllers.Extensions;
 
 namespace empty.Controllers
 {
+    [Route("artykuly")]
     public class BlogPostController : Controller
     {
         private IUnitOfWork _unitOfWork;
@@ -18,7 +19,6 @@ namespace empty.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [Route("artykuly")]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -33,8 +33,7 @@ namespace empty.Controllers
             return View("ShowAll", result);
         }
 
-        [Route("artykul/{id}")]
-        [HttpGet]
+        [HttpGet("{id:int?}")]
         public IActionResult Details(int? id)
         {            
             if (!id.HasValue)
@@ -51,15 +50,13 @@ namespace empty.Controllers
 
         #region Create
 
-        [Route("artykul/nowy")]
-        [HttpGet]
+        [HttpGet("nowy")]
         public IActionResult Create()
         {            
             return View();
         }
 
-        [Route("artykul/nowy")]
-        [HttpPost]
+        [HttpPost("nowy")]
         [ValidateAntiForgeryToken]
         public IActionResult Create(BlogPostViewModel model)
         {
@@ -73,8 +70,7 @@ namespace empty.Controllers
 
         #region Update
 
-        [Route("artykul/{id}/edytuj")]
-        [HttpGet]
+        [HttpGet("/nowy/{id:int?}")]
         public IActionResult Edit(int? id)
         {
             if (!id.HasValue)
@@ -89,8 +85,7 @@ namespace empty.Controllers
             return View(post.ToViewModel());
         }
 
-        [Route("artykul/{id}/edytuj")]
-        [HttpPost]
+        [HttpPost("{id:int?}")]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(BlogPostViewModel model)
         {            

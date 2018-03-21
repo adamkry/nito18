@@ -149,6 +149,11 @@ body {
 }
 
 /* blog posts */
+article, article p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 a.list-group-item {
     height:auto;
     min-height:220px;
@@ -175,3 +180,7 @@ a.list-group-item.active small {
     color:#fff;
 }
 
+.list-group-item-text {
+    text-align: justify;
+    text-justify: inter-word;
+}
