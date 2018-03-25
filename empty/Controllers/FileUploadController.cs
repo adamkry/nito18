@@ -29,7 +29,7 @@ namespace empty.Controllers
             }
 
             // var tempPath = Path.GetTempFileName();
-            var dir = _env.ContentRootPath + "\\userUploads\\";
+            var dir = _env.WebRootPath + "\\userUploads\\";
 
             // foreach (var file in files)
             // {
