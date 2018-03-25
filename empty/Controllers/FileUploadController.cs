@@ -21,9 +21,9 @@ namespace empty.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadFile(IFormFile[] files)
+        public async Task<IActionResult> UploadFile(IFormFile file)
         {
-            if (files == null || files.Length == 0)
+            if (file == null || file.Length == 0)
             {
                 return Content("File not selected");
             }
@@ -31,13 +31,13 @@ namespace empty.Controllers
             // var tempPath = Path.GetTempFileName();
             var dir = _env.ContentRootPath + "\\userUploads\\";
 
-            foreach (var file in files)
-            {
+            // foreach (var file in files)
+            // {
                 using (var stream = new FileStream(dir + file.FileName, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }
-            }
+            //}
             
             return Ok();
         }
