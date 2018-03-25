@@ -28,8 +28,8 @@ namespace empty.Controllers
                 return Content("File not selected");
             }
 
-            var tempPath = Path.GetTempFileName();
-            var path = _env.ContentRootPath + "\\wwwroot\\userUploads";
+            // var tempPath = Path.GetTempFileName();
+            var path = _env.ContentRootPath + "\\wwwroot\\userUploads\\" + file.FileName;
 
 
             using (var stream = new FileStream(path, FileMode.Create))
