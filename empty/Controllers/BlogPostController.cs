@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using empty.Controllers.Extensions;
+using Microsoft.AspNetCore.Http;
+using empty.Files;
 
 namespace empty.Controllers
 {
@@ -14,9 +16,12 @@ namespace empty.Controllers
     public class BlogPostController : Controller
     {
         private IUnitOfWork _unitOfWork;
-        public BlogPostController(IUnitOfWork unitOfWork)
+        private IImageFileProvider _imageFileProvider;
+
+        public BlogPostController(IUnitOfWork unitOfWork, IImageFileProvider imageFileProvider)
         {
             _unitOfWork = unitOfWork;
+            _imageFileProvider = imageFileProvider;
         }
 
         [HttpGet]
@@ -64,6 +69,13 @@ namespace empty.Controllers
             _unitOfWork.BlogPosts.Add(post);
             _unitOfWork.Complete();
             return RedirectToAction(nameof(Details), new { post.Id });
+        }
+
+        [HttpPost("addphoto/{:id}")]
+        public IActionResult AddPhoto(int id, IFormFile photo)
+        {
+            _imageFileProvider.SaveBlogImage(id, photo);
+            return Ok();
         }
 
         #endregion

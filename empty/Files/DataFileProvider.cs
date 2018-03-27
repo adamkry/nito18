@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.FileProviders;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
 using Persistence.JsonFile;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,14 @@ namespace empty.Files
     public class DataFileProvider : IDataFileProvider
     {
         private IFileProvider _fileProvider;
-        public DataFileProvider()
+        private IHostingEnvironment _env;
+        public DataFileProvider(IHostingEnvironment env)
         {
-            var dataJsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "dataJson");
+            var dataJsonDirectory = Path.Combine(env.ContentRootPath, "dataJson");
             if (!Directory.Exists(dataJsonDirectory))
             {
                 Directory.CreateDirectory(dataJsonDirectory);
-            }            
+            }
             _fileProvider = new PhysicalFileProvider(dataJsonDirectory);
         }
 

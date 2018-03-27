@@ -31,14 +31,12 @@ namespace empty.Controllers
             // var tempPath = Path.GetTempFileName();
             var dir = _env.WebRootPath + "\\userUploads\\";
 
-            // foreach (var file in files)
-            // {
-                using (var stream = new FileStream(dir + file.FileName, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-            //}
             
+            using (var stream = new FileStream(dir + file.FileName, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
             return Ok();
         }
     }
