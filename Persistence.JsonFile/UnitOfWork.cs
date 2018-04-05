@@ -36,7 +36,7 @@ namespace Persistence.JsonFile
         {
             return new Domain.Resume
             {
-                Id = 1,
+                Id = Guid.Parse("7c0a0f9d-1e0f-41a8-b8e3-0d4aae07910e"),
                 Biography = @"<p>Urodziłem się 4 lipca 1986 r. Mieszkańcem Sosnowca jestem od urodzenia. Wychowałem się w rodzinie od lat związanej z regionem Zagłębia Dąbrowskiego. W 2005 roku ukończyłem z wyróżnieniem III Liceum Ogólnokształcące im. Bolesława Prusa w Sosnowcu, otrzymując na tę okoliczność Medal Bolesława Prusa, będąc tym samym jednym z ponad 200 laureatów tego zaszczytnego wyróżnienia.</p>
 <p>Jestem absolwentem nauk politycznych ze specjalnością europeistyka na Wydziale Nauk Społecznych Uniwersytetu Śląskiego w Katowicach. Ponadto ukończyłem Podyplomowe Studia Samorządu Terytorialnego na Wydziale Prawa i Administracji UŚ oraz studia podyplomowe PR - nowoczesna komunikacja w praktyce na Uniwersytecie Ekonomicznym w Katowicach. Aktualnie jestem słuchaczem studiów doktoranckich na Wydziale Nauk Społecznych UŚ.</p>
 <p>Posiadam certyfikat Ministerstwa Skarbu Państwa uprawniający do zasiadania w radach nadzorczych spółek kapitałowych.</p>
@@ -49,25 +49,25 @@ namespace Persistence.JsonFile
                 {
                     new ResumePosition
                     {
-                        Id = 1,
+                        Id = Guid.Parse("c3b207d1-c002-42c8-ab46-e9598ccfa7d8"),
                         DateRange = "od I 2015",
                         Description = "Przewodniczący Federacji Młodych Socjaldemokratów woj. śląskiego"
                     },
                     new ResumePosition
                     {
-                        Id = 2,
+                        Id = Guid.Parse("ee4c59b1-2f10-4de1-8d49-c998490ceff0"),
                         DateRange = "od XII 2014",
                         Description = "Wiceprzewodniczący Rady Miejskiej w Sosnowcu"
                     },
                     new ResumePosition
                     {
-                        Id = 3,
+                        Id = Guid.Parse("f28ea040-c476-4be9-aabd-3a808037a106"),
                         DateRange = "od II 2014",
                         Description = "Członek Śląskiej Rady Wojewódzkiej Sojuszu Lewicy Demokratycznej"
                     },
                     new ResumePosition
                     {
-                        Id = 4,
+                        Id = Guid.Parse("93e37fb9-5cf3-458f-b9be-28406a394296"),
                         DateRange = "od V 2012",
                         Description = "Członek Rady Krajowej Federacji Młodych Socjaldemokratów"
                     }

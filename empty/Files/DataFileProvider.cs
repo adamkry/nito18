@@ -12,7 +12,7 @@ namespace empty.Files
     public class DataFileProvider : IDataFileProvider
     {
         private IFileProvider _fileProvider;
-        private IHostingEnvironment _env;
+        
         public DataFileProvider(IHostingEnvironment env)
         {
             var dataJsonDirectory = Path.Combine(env.ContentRootPath, "dataJson");

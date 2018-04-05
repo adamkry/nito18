@@ -31,17 +31,14 @@ namespace Persistence.JsonFile
             return Entities.Where(predicate);
         }
 
-        protected int AddEntity(T entity)
-        {
-            int newId = Entities.Count > 0
-                ? Entities.Max(e => e.Id) + 1
-                : 1;
-            entity.Id = newId;
+        protected Guid AddEntity(T entity)
+        {            
+            entity.Id = Guid.NewGuid();
             Entities.Add(entity);
             return entity.Id;
         }
 
-        protected T GetEntity(int? id)
+        protected T GetEntity(Guid? id)
         {
             return Entities.SingleOrDefault(e => e.Id == id);
         }

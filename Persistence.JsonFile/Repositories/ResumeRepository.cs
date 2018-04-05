@@ -13,12 +13,12 @@ namespace Persistence.JsonFile.Repositories
         {
         }
 
-        public int Add(Resume entity)
+        public Guid Add(Resume entity)
         {
             return AddEntity(entity);
         }
 
-        public Resume Get(int? id)
+        public Resume Get(Guid? id)
         {            
             //There will be only one resume for now
             return GetAll().SingleOrDefault();

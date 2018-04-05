@@ -8,7 +8,7 @@ namespace empty.Models
 {
     public class ResumePositionViewModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Display(Name = "Okres")]
         public string DateRange { get; set; }

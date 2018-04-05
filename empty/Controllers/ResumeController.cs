@@ -18,7 +18,7 @@ namespace empty.Controllers
             _unitOfWork = unitOfWork;
         }
                 
-        public IActionResult Details(int? id)
+        public IActionResult Details(Guid? id)
         {
             return View(Map(_unitOfWork.Resume.Get(id)));
         }

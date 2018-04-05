@@ -7,6 +7,6 @@ namespace Persistence
 {
     public interface IGetRepository<T> where T: IEntity
     {
-        T Get(int? id);
+        T Get(Guid? id);
     }
 }
