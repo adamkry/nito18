@@ -29,8 +29,23 @@
     <div id="top-carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            @for (int i = 1; i < 19; i=i+3) {
-                var item = i == 1 ? "item active" : "item";
+            <div class="item active">
+                <div class="row">
+                    <img src="/images/top-carousel/baner_1.jpg" alt="Wojciech Nitwinko" class="im-responsive">
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <img src="/images/top-carousel/baner_2.jpg" alt="Wojciech Nitwinko" class="im-responsive">
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <img src="/images/top-carousel/baner_3.jpg" alt="Wojciech Nitwinko" class="im-responsive">
+                </div>
+            </div>
+            @for (int i = 1; i < 19; i=i+3) {                
+                var item = "item";
                 var imgName = $"/images/top-carousel/{i}.jpg";
                 var imgName2 = $"/images/top-carousel/{i+1}.jpg";
                 var imgName3 = $"/images/top-carousel/{i+2}.jpg";
