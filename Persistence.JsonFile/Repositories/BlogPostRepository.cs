@@ -11,12 +11,12 @@ namespace Persistence.JsonFile.Repositories
     {
         public BlogPostRepository(IDataFileProvider dataFileProvider) : base(dataFileProvider) { }
 
-        public int Add(BlogPost entity)
+        public Guid Add(BlogPost entity)
         {
             return AddEntity(entity);
         }
 
-        public BlogPost Get(int? id)
+        public BlogPost Get(Guid? id)
         {
             return Entities.SingleOrDefault(e => e.Id == id);
         }

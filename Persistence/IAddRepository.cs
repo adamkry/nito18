@@ -7,6 +7,6 @@ namespace Persistence
 {
     public interface IAddRepository<T> where T : IEntity
     {
-        int Add(T entity);
+        Guid Add(T entity);
     }
 }

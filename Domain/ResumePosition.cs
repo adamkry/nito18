@@ -6,7 +6,7 @@ namespace Domain
 {
     public class ResumePosition : IEntity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string DateRange { get; set; }
 

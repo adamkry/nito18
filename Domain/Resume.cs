@@ -6,7 +6,7 @@ namespace Domain
 {
     public class Resume : IEntity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Biography { get; set; }
 

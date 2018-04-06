@@ -8,7 +8,7 @@ namespace empty.Models
 {
     public class ResumeViewModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Display(Name = "O mnie")]
         public string Biography { get; set; }

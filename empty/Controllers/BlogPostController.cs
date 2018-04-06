@@ -38,8 +38,8 @@ namespace empty.Controllers
             return View("ShowAll", result);
         }
 
-        [HttpGet("{id:int?}")]
-        public IActionResult Details(int? id)
+        [HttpGet("{id}")]
+        public IActionResult Details(Guid? id)
         {            
             if (!id.HasValue)
             {
@@ -75,7 +75,7 @@ namespace empty.Controllers
             return Content($"{post.Id}");
         }
 
-        [HttpPost("addphoto/{:id}")]
+        [HttpPost("addphoto/{id}")]
         public IActionResult AddPhoto(int id, IFormFile photo)
         {
             _imageFileProvider.SaveBlogImage(id, photo);
@@ -86,8 +86,8 @@ namespace empty.Controllers
 
         #region Update
 
-        [HttpGet("/nowy/{id:int?}")]
-        public IActionResult Edit(int? id)
+        [HttpGet("/nowy/{id}")]
+        public IActionResult Edit(Guid? id)
         {
             if (!id.HasValue)
             {
@@ -101,7 +101,7 @@ namespace empty.Controllers
             return View(post.ToViewModel());
         }
 
-        [HttpPost("{id:int?}")]
+        [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(BlogPostViewModel model)
         {            
