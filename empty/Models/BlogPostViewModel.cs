@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 
 namespace empty.Models
 {
+    public class CreateBlogPostViewModel
+    {
+        public string Title { get; set; }
+        public string Content { get; set; }
+    }
+
     public class BlogPostViewModel
     {
         public int Id { get; set; }

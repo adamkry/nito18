@@ -62,13 +62,17 @@ namespace empty.Controllers
         }
 
         [HttpPost("nowy")]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(BlogPostViewModel model)
+        public IActionResult Create(CreateBlogPostViewModel model)
         {
-            var post = Map(model);
+            var post = new BlogPost
+            {
+                Title = model.Title,
+                Content = model.Content,
+                Created = DateTime.Now
+            };
             _unitOfWork.BlogPosts.Add(post);
             _unitOfWork.Complete();
-            return RedirectToAction(nameof(Details), new { post.Id });
+            return Content($"{post.Id}");
         }
 
         [HttpPost("addphoto/{:id}")]
