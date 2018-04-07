@@ -11,27 +11,27 @@ namespace empty.Files
 {
     public interface IImageFileProvider
     {
-        void SaveBlogImage(int blogPostId, IFormFile imageFile);
+        Task<string> SaveBlogImageAsync(Guid blogPostId, IFormFile imageFile);
     }
 
     public class ImageFileProvider : IImageFileProvider
     {
-        private IFileProvider _fileProvider;
+        private string root;
 
         public ImageFileProvider(IHostingEnvironment env)
         {
-            string root = Path.Combine(env.WebRootPath, "images");
-            _fileProvider = new PhysicalFileProvider(root);
+            root = Path.Combine(env.WebRootPath, "images");
         }
 
-        public async void SaveBlogImage(int blogPostId, IFormFile imageFile)
-        {   
-            string directoryName = Path.Combine("blogPosts", $"{blogPostId}");
+        public async Task<string> SaveBlogImageAsync(Guid blogPostId, IFormFile imageFile)
+        {
+            string directoryName = Path.Combine(root, "blogPosts", $"{blogPostId}");
             CreateIfNotExists(directoryName);
-            await SaveImageAsync(directoryName, imageFile);
+            var fileName = await SaveImageAsync(directoryName, imageFile);
+            return fileName;
         }
 
-        private async Task SaveImageAsync(string directoryName, IFormFile imageFile)
+        private async Task<string> SaveImageAsync(string directoryName, IFormFile imageFile)
         {
             string fileName = Path.GetFileName(imageFile.FileName);
             string fullFileName = Path.Combine(directoryName, fileName);
@@ -39,6 +39,7 @@ namespace empty.Files
             {
                 await imageFile.CopyToAsync(stream);
             }
+            return fileName;
         }
 
         private void CreateIfNotExists(string directoryName)

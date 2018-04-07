@@ -32,8 +32,10 @@ namespace Persistence.JsonFile
         }
 
         protected Guid AddEntity(T entity)
-        {            
-            entity.Id = Guid.NewGuid();
+        {       
+            if (entity.Id == Guid.Empty) {
+                entity.Id = Guid.NewGuid();    
+            }
             Entities.Add(entity);
             return entity.Id;
         }

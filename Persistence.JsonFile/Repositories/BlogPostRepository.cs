@@ -16,6 +16,11 @@ namespace Persistence.JsonFile.Repositories
             return AddEntity(entity);
         }
 
+        public void Remove(BlogPost entity)
+        {
+            Remove(entity);
+        }
+
         public BlogPost Get(Guid? id)
         {
             return Entities.SingleOrDefault(e => e.Id == id);

@@ -18,7 +18,7 @@
                 i++;
                 <div class="item @(i == 1 ? "active" : "")">                    
                     <div class="item-content" 
-                         style="@(news.Images.Count > 0 ? ("background-image: url('../" + news.Images[0] + "')") : "")"></div>
+                         style="@(("background-image: url('../" + news.Photo + "')"))"></div>
                     <div class="carousel-caption" role="option">
                         <div class="item-title">
                             <p>@news.Title</p>

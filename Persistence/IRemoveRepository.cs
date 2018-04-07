@@ -7,6 +7,6 @@ namespace Persistence
 {
     public interface IRemoveRepository<T> where T : IEntity
     {
-        void Remove(IEntity entity);
+        void Remove(T entity);
     }
 }

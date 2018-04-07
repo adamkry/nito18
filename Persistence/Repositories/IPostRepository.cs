@@ -5,7 +5,9 @@ using System.Text;
 
 namespace Persistence.Repositories
 {
-    public interface IBlogPostRepository : IGetRepository<BlogPost>, IGetAllRepository<BlogPost>, IAddRepository<BlogPost>
+    public interface IBlogPostRepository : IGetRepository<BlogPost>, 
+        IGetAllRepository<BlogPost>, IAddRepository<BlogPost>,
+        IRemoveRepository<BlogPost>
     {
     }
 }

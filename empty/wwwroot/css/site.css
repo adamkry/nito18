@@ -97,7 +97,7 @@ body {
 }
 
 .navbar-brand img {
-    height: 51px;
+    height: 50px;
 }
 
 /* card */
@@ -154,6 +154,21 @@ article, article p {
     text-justify: inter-word;
 }
 
+.blogposts.well {
+    background-color: unset;
+    border: 0px;
+}
+
+.blogposts.well .list-group-item {
+    background-color: white;
+    border: 0px;
+}
+
+.blogposts.well .list-group-item:hover {
+    background-color: #afd201;
+    border: 0px;
+}
+
 a.list-group-item {
     height:auto;
     min-height:220px;
@@ -173,6 +188,10 @@ a.list-group-item {
 @media (min-width: 1200px) {
     a.list-group-item {
         min-height: 260px;
+    }
+
+    a.list-group-item img {
+        max-height: 240px;
     }
 }
 

@@ -16,8 +16,10 @@ namespace empty.Controllers.Extensions
                 {
                     Id = post.Id,
                     Content = post.Content,
+                    TextContent = post.TextContent ?? post.Content,
                     Created = post.Created,
-                    Title = post.Title
+                    Title = post.Title,
+                    MainPhotoName = post.MainPhotoName
                 }
                 : new BlogPostViewModel();
         }

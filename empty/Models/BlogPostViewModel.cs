@@ -7,8 +7,10 @@ namespace empty.Models
 {
     public class CreateBlogPostViewModel
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public string TextContent { get; set; }        
     }
 
     public class BlogPostViewModel
@@ -16,6 +18,8 @@ namespace empty.Models
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public string TextContent { get; set; }
         public DateTime Created { get; set; }
+        public string MainPhotoName { get; set; }
     }
 }

@@ -62,12 +62,14 @@ namespace empty.Controllers
         }
 
         [HttpPost("nowy")]
-        public IActionResult Create(CreateBlogPostViewModel model)
+        public IActionResult Create([FromBody] CreateBlogPostViewModel model)
         {
             var post = new BlogPost
             {
+                Id = model.Id,
                 Title = model.Title,
                 Content = model.Content,
+                TextContent = model.TextContent,
                 Created = DateTime.Now
             };
             _unitOfWork.BlogPosts.Add(post);
@@ -76,9 +78,19 @@ namespace empty.Controllers
         }
 
         [HttpPost("addphoto/{id}")]
-        public IActionResult AddPhoto(int id, IFormFile photo)
-        {
-            _imageFileProvider.SaveBlogImage(id, photo);
+        public async Task<IActionResult> AddPhoto(Guid id, IFormFile photo)
+        {            
+            if (photo == null) {
+                return NoContent();
+            }
+            var post = _unitOfWork.BlogPosts.Get(id);
+            
+            var fileName = await _imageFileProvider.SaveBlogImageAsync(id, photo);
+            if (String.IsNullOrWhiteSpace(post.MainPhotoName))
+            {
+                post.MainPhotoName = fileName;
+            }
+            _unitOfWork.Complete();
             return Ok();
         }
 
@@ -112,6 +124,14 @@ namespace empty.Controllers
             return RedirectToAction(nameof(Details), new { post.Id });
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid? id)
+        {
+            var post = _unitOfWork.BlogPosts.Get(id);
+            _unitOfWork.BlogPosts.Remove(post);
+            return Ok();
+        }
+
         #endregion
 
         private BlogPost Map(BlogPostViewModel post)
@@ -120,6 +140,7 @@ namespace empty.Controllers
             {
                 Id = post.Id,
                 Content = post.Content,
+                TextContent = post.TextContent ?? post.Content,
                 Created = post.Created,
                 Title = post.Title
             };

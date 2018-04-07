@@ -3,13 +3,13 @@
 <a asp-area="" asp-controller="BlogPost" asp-action="Details" asp-route-id="@(Model.Id)" class="list-group-item">
     <div class="media col-md-4">
         <figure class="pull-left">
-            <img class="media-object img-rounded img-responsive"  src="~/images/blogposts/@(Model.Id)/1.jpg" alt="placehold.it/350x250" >
+            <img class="media-object img-rounded img-responsive"  src="/images/blogposts/@(Model.Id)/@(Model.MainPhotoName)" >
         </figure>
     </div>
     <div class="col-md-5">
         <h4 class="list-group-item-heading ellipsis">@Model.Title</h4>
         <div class="list-group-item-text">
-            @Model.Content.Substring(0, Math.Min(@Model.Content.Length, 256))...
+            @Model.TextContent.Substring(0, Math.Min(@Model.TextContent.Length, 256))...
         </div>
     </div>
     <div class="col-md-3 text-center">

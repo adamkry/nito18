@@ -54,7 +54,7 @@ namespace empty.Controllers
                 {
                     Id = bp.Id,
                     Title = bp.Title,
-                    Images = new List<string> { $"images/blogposts/{bp.Id}/1.jpg" }
+                    Photo = $"images/blogposts/{bp.Id}/{bp.MainPhotoName}"
                 }));
             }
             var result = new NewsCarouselViewModel
