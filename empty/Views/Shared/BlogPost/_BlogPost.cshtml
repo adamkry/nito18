@@ -1,7 +1,11 @@
 ﻿@model empty.Models.BlogPostViewModel
-
 <article>
     <h1>@Model.Title</h1>
     <h5>@Model.Created.ToString("yyyy-MM-dd")</h5>
-    <p>@Html.Raw(Model.Content)</p>
+    <p>
+        <style>
+            @Html.Raw(Model.Styles)
+        </style>        
+        @Html.Raw(Model.Content)
+    </p>
 </article>

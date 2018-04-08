@@ -7,3 +7,5 @@ obj/
 *.user
 packages
 userUploads/
+dataJson/
+images/blogposts

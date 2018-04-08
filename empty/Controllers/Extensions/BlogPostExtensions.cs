@@ -17,6 +17,7 @@ namespace empty.Controllers.Extensions
                     Id = post.Id,
                     Content = post.Content,
                     TextContent = post.TextContent ?? post.Content,
+                    Styles = post.Styles,
                     Created = post.Created,
                     Title = post.Title,
                     MainPhotoName = post.MainPhotoName

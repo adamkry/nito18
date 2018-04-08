@@ -12,6 +12,8 @@ namespace Domain
 
         public string TextContent { get; set; }
 
+        public string Styles { get; set; }
+
         public DateTime Created { get; set; }
 
         public string MainPhotoName { get; set; }

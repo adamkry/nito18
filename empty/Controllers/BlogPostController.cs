@@ -69,6 +69,7 @@ namespace empty.Controllers
                 Id = model.Id,
                 Title = model.Title,
                 Content = model.Content,
+                Styles = model.Styles,
                 TextContent = model.TextContent,
                 Created = DateTime.Now
             };
@@ -141,6 +142,7 @@ namespace empty.Controllers
                 Id = post.Id,
                 Content = post.Content,
                 TextContent = post.TextContent ?? post.Content,
+                Styles = post.Styles,
                 Created = post.Created,
                 Title = post.Title
             };
