@@ -23,6 +23,7 @@ namespace empty.Controllers
         {
             List<BlogPost> blogPosts = _unitOfWork.BlogPosts
                 .GetAll()
+                .Where(bp => bp.IsDeleted != true)
                 .OrderByDescending(bp => bp.Created)
                 .ToList();
 

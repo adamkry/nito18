@@ -17,5 +17,7 @@ namespace Domain
         public DateTime Created { get; set; }
 
         public string MainPhotoName { get; set; }
+
+        public bool? IsDeleted { get; set; }
     }
 }

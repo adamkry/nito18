@@ -13,7 +13,7 @@ namespace empty.Models
         public string TextContent { get; set; } 
         public string Styles { get; set; }       
     }
-
+    
     public class BlogPostViewModel
     {
         public Guid Id { get; set; }

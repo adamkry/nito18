@@ -28,6 +28,7 @@ namespace empty.Controllers
         public IActionResult GetAll()
         {
             var posts = _unitOfWork.BlogPosts.GetAll() ?? new List<BlogPost>();
+            posts = posts.Where(p => p.IsDeleted != true);
             var result = new AllBlogPostsViewModel
             {
                 BlogPosts = posts
@@ -46,7 +47,7 @@ namespace empty.Controllers
                 return NotFound();
             }
             var post = _unitOfWork.BlogPosts.Get(id);
-            if (post == null)
+            if (post == null || post.IsDeleted == true)
             {
                 return NotFound();
             }
@@ -114,22 +115,27 @@ namespace empty.Controllers
             return View(post.ToViewModel());
         }
 
-        [HttpPost("{id}")]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(BlogPostViewModel model)
+        [HttpGet("renew/{id}")]        
+        public IActionResult Renew(Guid id)
         {            
-            var post = _unitOfWork.BlogPosts.Get(model.Id);
-            post.Content = model.Content;            
-            post.Title = model.Title;            
-            _unitOfWork.Complete();
-            return RedirectToAction(nameof(Details), new { post.Id });
+            var post = _unitOfWork.BlogPosts.Get(id);
+            if (post != null)
+            {
+                post.IsDeleted = false;
+                _unitOfWork.Complete();
+            }
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid? id)
+        public IActionResult Delete(Guid id)
         {
             var post = _unitOfWork.BlogPosts.Get(id);
-            _unitOfWork.BlogPosts.Remove(post);
+            if (post != null)
+            {
+                post.IsDeleted = true;
+                _unitOfWork.Complete();
+            } 
             return Ok();
         }
 
